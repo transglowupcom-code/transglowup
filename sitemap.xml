@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TransGlowUp sitemap — drop at site root as sitemap.xml in the next batched deploy. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://transglowup.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://transglowup.com/#care</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://transglowup.com/#news</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://transglowup.com/#closet</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://transglowup.com/#community</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://transglowup.com/#guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://transglowup.com/#legal</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://transglowup.com/#makeup</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://transglowup.com/#tools</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://transglowup.com/#recovery</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://transglowup.com/#crisis</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://transglowup.com/#privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
