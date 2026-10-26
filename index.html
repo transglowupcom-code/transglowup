@@ -4,7 +4,7 @@
 <script>
 /* TransGlowUp accessibility preferences — applied before first paint. */
 (function(){try{var p=JSON.parse(localStorage.getItem("tg-a11y")||"{}");var h=document.documentElement;
-if(p.theme==="dark"){h.setAttribute("data-theme","dark");}
+if(p.theme!=="light"){h.setAttribute("data-theme","dark");}
 if(p.textsize){h.setAttribute("data-textsize",p.textsize);}
 if(p.dyslexia){h.setAttribute("data-dyslexia","on");}
 if(p.colorblind){h.setAttribute("data-colorblind",p.colorblind);}
@@ -23,7 +23,7 @@ if(p.links){h.setAttribute("data-links","underline");}
 <meta name="google-site-verification" content="C0dC6V23PzfuFKCPOczhsFH883zFXiqyt2HhjrDocTI" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#ffd9ee" />
+  <meta name="theme-color" content="#0f172a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="TransGlowUp" />
@@ -278,6 +278,19 @@ html[data-theme="dark"] .t101-btn[data-t101="tw"].active,html[data-theme="dark"]
 .follow-btn:hover{background:var(--pink);color:#fff}
 html[data-theme="dark"] .follow-btn:hover{background:#2dd4bf;border-color:#2dd4bf;color:#0f172a}
 
+
+/* ===== Dark by default + max contrast (2026-10-26): white text on dark everywhere ===== */
+html[data-theme="dark"]{--ink:#ffffff;--muted:#e2e8f0;--line:rgba(255,255,255,.22);color-scheme:dark}
+html[data-theme="dark"] .jump-links a{background:#2dd4bf;border-color:#2dd4bf;color:#0f172a}
+html[data-theme="dark"] .jump-links a:nth-child(even):not(.closet-btn){background:#38bdf8;border-color:#38bdf8;color:#0f172a}
+html[data-theme="dark"] .donate-btn{background:#2dd4bf;border-color:#2dd4bf;color:#0f172a}
+html[data-theme="dark"] .btn:not(.secondary){background:#2dd4bf;border-color:#2dd4bf;color:#0f172a;box-shadow:none}
+html[data-theme="dark"] .btn.secondary{background:#1e293b;border-color:rgba(255,255,255,.25);color:#fff}
+html[data-theme="dark"] .contact-card input,html[data-theme="dark"] .contact-card select,html[data-theme="dark"] .contact-card textarea{background:#1e293b;color:#fff}
+html[data-theme="dark"] .result strong,html[data-theme="dark"] .sense b{color:var(--blue-soft)}
+html[data-theme="dark"] .tg-seg button[aria-pressed="true"],html[data-theme="dark"] .tg-toggle[aria-pressed="true"]{background:#2dd4bf;color:#0f172a}
+html[data-theme="dark"] .tg-chat-form button{background:#2dd4bf;color:#0f172a}
+
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
@@ -314,8 +327,8 @@ html[data-theme="dark"] .follow-btn:hover{background:#2dd4bf;border-color:#2dd4b
 <h2>Accessibility settings</h2>
 <p class="tg-note">Your choices are saved in this browser and applied on every visit. Nothing is sent anywhere.</p>
 <fieldset><legend>Theme</legend><div class="tg-seg" id="tgThemeSeg">
-<button data-theme-val="light" aria-pressed="true">☀️ Light</button>
-<button data-theme-val="dark" aria-pressed="false">🌙 Dark</button>
+<button data-theme-val="light" aria-pressed="false">☀️ Light</button>
+<button data-theme-val="dark" aria-pressed="true">🌙 Dark</button>
 </div></fieldset>
 <fieldset><legend>Text size</legend><div class="tg-seg" id="tgSizeSeg">
 <button data-size-val="" aria-pressed="true">Normal</button>
@@ -921,7 +934,7 @@ var prefs=load();
 function apply(){
 var h=document.documentElement;
 h.toggleAttribute("data-theme",!!(prefs.theme==="dark"));
-if(prefs.theme==="dark"){h.setAttribute("data-theme","dark")}else{h.removeAttribute("data-theme")}
+if(prefs.theme==="light"){h.removeAttribute("data-theme")}else{h.setAttribute("data-theme","dark")}
 if(prefs.textsize){h.setAttribute("data-textsize",prefs.textsize)}else{h.removeAttribute("data-textsize")}
 if(prefs.dyslexia){h.setAttribute("data-dyslexia","on")}else{h.removeAttribute("data-dyslexia")}
 if(prefs.contrast){h.setAttribute("data-contrast","high")}else{h.removeAttribute("data-contrast")}
@@ -929,11 +942,11 @@ if(prefs.motion){h.setAttribute("data-motion","reduced")}else{h.removeAttribute(
 if(prefs.links){h.setAttribute("data-links","underline")}else{h.removeAttribute("data-links")}
 if(prefs.colorblind){h.setAttribute("data-colorblind",prefs.colorblind)}else{h.removeAttribute("data-colorblind")}
 var mc=document.querySelector('meta[name="theme-color"]');
-if(mc){mc.setAttribute("content",prefs.theme==="dark"?"#1b0f2a":"#ffd9ee")}
+if(mc){mc.setAttribute("content",prefs.theme==="light"?"#f7f9fb":"#0f172a")}
 syncControls();
 }
 function syncControls(){
-document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.themeVal===(prefs.theme||"light")?"true":"false")});
+document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.themeVal===(prefs.theme||"dark")?"true":"false")});
 document.querySelectorAll("#tgSizeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.sizeVal===(prefs.textsize||"")?"true":"false")});
 var map={tgDyslexia:"dyslexia",tgLinks:"links",tgMotion:"motion",tgContrast:"contrast"};
 Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el){el.setAttribute("aria-pressed",prefs[map[id]]?"true":"false")}});
