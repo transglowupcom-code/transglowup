@@ -1,12 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+/* TransGlowUp accessibility preferences — applied before first paint. */
+(function(){try{var p=JSON.parse(localStorage.getItem("tg-a11y")||"{}");var h=document.documentElement;
+if(p.theme==="dark"){h.setAttribute("data-theme","dark");}
+if(p.textsize){h.setAttribute("data-textsize",p.textsize);}
+if(p.dyslexia){h.setAttribute("data-dyslexia","on");}
+if(p.colorblind){h.setAttribute("data-colorblind",p.colorblind);}
+if(p.contrast){h.setAttribute("data-contrast","high");}
+if(p.motion){h.setAttribute("data-motion","reduced");}
+if(p.links){h.setAttribute("data-links","underline");}
+}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2099138392595725"
      crossorigin="anonymous"></script>
   <meta charset="utf-8" />
 <meta name="google-site-verification" content="C0dC6V23PzfuFKCPOczhsFH883zFXiqyt2HhjrDocTI" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="color-scheme" content="light only" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#ffd9ee" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -80,7 +96,76 @@
 .fave-list li{line-height:1.45}
 
 .community-faves h3{margin-bottom:.3rem}
-.podcast-hero{display:flex;gap:22px;align-items:center;padding:24px;margin-top:18px}.podcast-hero>img{width:180px;height:180px;border-radius:22px;flex:none;box-shadow:0 10px 26px rgba(120,20,90,.28)}.podcast-episodes{display:grid;gap:14px;margin-top:22px}.podcast-ep{display:flex;gap:16px;align-items:center;padding:18px 20px;text-decoration:none}.podcast-ep>img{width:72px;height:72px;border-radius:16px;flex:none}.podcast-ep strong{display:block;font-size:1.02rem;margin-bottom:4px}.podcast-ep span{color:var(--muted);font-size:.9rem}@media (max-width:640px){.podcast-hero{flex-direction:column;text-align:center}.podcast-ep{align-items:flex-start}}</style>
+.podcast-hero{display:flex;gap:22px;align-items:center;padding:24px;margin-top:18px}.podcast-hero>img{width:180px;height:180px;border-radius:22px;flex:none;box-shadow:0 10px 26px rgba(120,20,90,.28)}.podcast-episodes{display:grid;gap:14px;margin-top:22px}.podcast-ep{display:flex;gap:16px;align-items:center;padding:18px 20px;text-decoration:none}.podcast-ep>img{width:72px;height:72px;border-radius:16px;flex:none}.podcast-ep strong{display:block;font-size:1.02rem;margin-bottom:4px}.podcast-ep span{color:var(--muted);font-size:.9rem}@media (max-width:640px){.podcast-hero{flex-direction:column;text-align:center}.podcast-ep{align-items:flex-start}}
+/* ===== TransGlowUp accessibility overhaul (2026-10-26) ===== */
+body{font-size:18px;line-height:1.7}
+p,li{max-width:75ch}
+:focus-visible{outline:3px solid var(--blue-strong);outline-offset:3px;border-radius:6px}
+.tg-skip{position:absolute;left:-9999px;top:8px;z-index:10000;background:#fff;color:#2b0f38;font-weight:800;padding:12px 20px;border-radius:999px;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.tg-skip:focus{left:12px}
+/* --- dark theme --- */
+html[data-theme="dark"]{--bg:#1b0f2a;--surface:rgba(255,255,255,.09);--surface-2:#5b2350;--surface-blue:#1d4e6b;--ink:#f8eefb;--muted:#d9c2e8;--line:#c86dd8;--pink-soft:#ff8ac2;--blue-soft:#8fd8ff;--yellow:#ffd166;--danger-bg:#3d1226;--black-accent:#f8eefb;--dot:rgba(255,255,255,.10);--shadow:0 18px 44px rgba(0,0,0,.5);--shadow-edge:rgba(0,0,0,.5)}
+html[data-theme="dark"] body{background-color:#1b0f2a;background-image:radial-gradient(circle 2.5px at 12% 22%,rgba(255,255,255,.5) 98%,transparent 100%),radial-gradient(circle 2px at 82% 14%,rgba(255,255,255,.4) 98%,transparent 100%),radial-gradient(circle 3px at 68% 34%,rgba(255,209,102,.5) 98%,transparent 100%),linear-gradient(180deg,#2b0f38 0%,#1b0f2a 45%,#0d1b3a 100%)}
+html[data-theme="dark"] .jump-home,html[data-theme="dark"] .site-name,html[data-theme="dark"] .page-return{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+html[data-theme="dark"] .visitor-pill{background:rgba(43,15,56,.94);color:#f8eefb}
+html[data-theme="dark"] .t101-choice{background:#2b0f38}
+/* --- color-vision palettes (Wong colorblind-safe set) --- */
+html[data-colorblind="protan"],html[data-colorblind="deutan"]{--pink:#e69f00;--pink-strong:#b37400;--pink-soft:#f0c75e;--blue:#0072b2;--blue-strong:#005b8f;--blue-soft:#56b4e9;--lavender:#cc79a7;--lavender-soft:#e8a8c8;--yellow:#f0e442;--lime:#009e73;--line:#e69f00}
+html[data-colorblind="tritan"]{--pink:#d55e00;--pink-strong:#a63e00;--pink-soft:#f0a35e;--blue:#0072b2;--blue-strong:#005b8f;--blue-soft:#56b4e9;--lavender:#cc79a7;--lavender-soft:#e8a8c8;--yellow:#f0e442;--lime:#009e73;--line:#d55e00}
+html[data-colorblind="achroma"]{--pink:#767676;--pink-strong:#333;--pink-soft:#bdbdbd;--blue:#555;--blue-strong:#222;--blue-soft:#999;--lavender:#888;--lavender-soft:#ccc;--yellow:#ddd;--lime:#777;--line:#555;--danger:#333;--danger-bg:#eee}
+/* --- high contrast --- */
+html[data-contrast="high"]{--ink:#000;--muted:#000;--line:#000;--surface:#fff;--surface-2:#fff}
+html[data-theme="dark"][data-contrast="high"]{--ink:#fff;--muted:#fff;--line:#fff;--surface:#000;--surface-2:#000}
+/* --- dyslexia-friendly type + spacing --- */
+html[data-dyslexia="on"] body{font-family:"Atkinson Hyperlegible","DM Sans",Verdana,sans-serif;letter-spacing:.035em;word-spacing:.12em;line-height:1.85}
+/* --- text size (whole-page zoom; keeps layout intact) --- */
+html[data-textsize="lg"] body{zoom:1.15}
+html[data-textsize="xl"] body{zoom:1.3}
+/* --- reduce motion --- */
+html[data-motion="reduced"] *,html[data-motion="reduced"] *::before,html[data-motion="reduced"] *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+/* --- underline links --- */
+html[data-links="underline"] a{text-decoration:underline !important;text-underline-offset:3px}
+/* --- accessibility toolbar --- */
+.tg-a11y-btn{position:fixed;left:16px;bottom:16px;z-index:9998;width:56px;height:56px;border-radius:50%;border:2px solid var(--line);background:linear-gradient(135deg,#5b8def,#f472b6);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.tg-a11y-panel{position:fixed;left:16px;bottom:84px;z-index:9999;width:min(340px,calc(100vw - 32px));max-height:min(70vh,620px);overflow:auto;background:#fff;color:#2b0f38;border:2px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 16px 44px rgba(0,0,0,.35);display:none}
+html[data-theme="dark"] .tg-a11y-panel{background:#2b0f38;color:#f8eefb}
+.tg-a11y-panel.open{display:block}
+.tg-a11y-panel h2{font-size:20px;margin:0 0 4px}
+.tg-a11y-panel .tg-note{font-size:14px;opacity:.75;margin:0 0 14px}
+.tg-a11y-panel fieldset{border:0;margin:0 0 14px;padding:0}
+.tg-a11y-panel legend{font-weight:800;font-size:15px;margin-bottom:6px}
+.tg-seg{display:flex;gap:6px;flex-wrap:wrap}
+.tg-seg button,.tg-toggle{border:2px solid var(--line);background:#fff;color:#2b0f38;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer}
+html[data-theme="dark"] .tg-seg button,html[data-theme="dark"] .tg-toggle{background:#1b0f2a;color:#f8eefb}
+.tg-seg button[aria-pressed="true"],.tg-toggle[aria-pressed="true"]{background:var(--pink);color:#fff;border-color:var(--pink-strong)}
+.tg-a11y-panel select{width:100%;padding:10px;border:2px solid var(--line);border-radius:12px;font-size:15px;background:#fff;color:#2b0f38}
+html[data-theme="dark"] .tg-a11y-panel select{background:#1b0f2a;color:#f8eefb}
+.tg-reset{background:none;border:0;color:var(--pink-strong);font-weight:800;font-size:14px;cursor:pointer;padding:4px 0}
+html[data-theme="dark"] .tg-reset{color:#ff8ac2}
+/* --- Glow Guide chatbot --- */
+.tg-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9998;width:56px;height:56px;border-radius:50%;border:2px solid var(--line);background:linear-gradient(135deg,#f472b6,#5b8def);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.tg-chat-panel{position:fixed;right:16px;bottom:84px;z-index:9999;width:min(360px,calc(100vw - 32px));height:min(520px,70vh);display:none;flex-direction:column;background:#fff;color:#2b0f38;border:2px solid var(--line);border-radius:20px;box-shadow:0 16px 44px rgba(0,0,0,.35);overflow:hidden}
+html[data-theme="dark"] .tg-chat-panel{background:#2b0f38;color:#f8eefb}
+.tg-chat-panel.open{display:flex}
+.tg-chat-head{background:linear-gradient(135deg,#5b8def,#f472b6);color:#fff;padding:14px 16px}
+.tg-chat-head strong{font-size:17px}
+.tg-chat-head p{font-size:13px;margin:2px 0 0;opacity:.9;max-width:none}
+.tg-chat-msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.tg-msg{max-width:88%;padding:10px 14px;border-radius:16px;font-size:15px;line-height:1.5}
+.tg-msg.bot{background:#ffe3f2;color:#2b0f38;align-self:flex-start}
+html[data-theme="dark"] .tg-msg.bot{background:#3d1a52;color:#f8eefb}
+.tg-msg.user{background:var(--pink);color:#fff;align-self:flex-end}
+.tg-go{margin-top:8px;background:#fff;color:var(--pink-strong);border:2px solid var(--pink);border-radius:999px;padding:7px 14px;font-weight:800;font-size:14px;cursor:pointer}
+.tg-chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+.tg-chips button{border:2px solid var(--line);background:#fff;color:#2b0f38;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700;cursor:pointer}
+html[data-theme="dark"] .tg-chips button{background:#1b0f2a;color:#f8eefb}
+.tg-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.tg-chat-form input{flex:1;min-width:0;padding:11px 14px;border:2px solid var(--line);border-radius:999px;font-size:15px;background:#fff;color:#2b0f38}
+html[data-theme="dark"] .tg-chat-form input{background:#1b0f2a;color:#f8eefb}
+.tg-chat-form button{background:var(--pink);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:800;font-size:15px;cursor:pointer}
+.tg-chat-foot{font-size:12px;opacity:.7;text-align:center;padding:0 12px 10px}
+
+</style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
 <meta name="description" content="TransGlowUp.com — a free, grassroots hub built by a trans woman for the community: find gender-affirming care near you, full outfit starter kits under $65, free products, real trans news, and community chat." />
@@ -102,13 +187,60 @@
 <meta name="twitter:description" content="A free, grassroots hub built by a trans woman for the community: gender-affirming care near you, outfit starter kits under $65, free products, trans news, and community chat." />
 <meta name="twitter:image" content="https://transglowup.com/app-icon-512.png" />
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://transglowup.com/#org","name":"TransGlowUp","url":"https://transglowup.com/","logo":"https://transglowup.com/logo.png","description":"A free, grassroots hub built by a trans woman for the community: gender-affirming care, outfit starter kits, free products, trans news, and community chat.","sameAs":["https://www.instagram.com/bun.bun.cakes","https://www.threads.net/@bun.bun.cakes"]},
+{"@type":"WebSite","@id":"https://transglowup.com/#site","url":"https://transglowup.com/","name":"TransGlowUp","publisher":{"@id":"https://transglowup.com/#org"},"inLanguage":"en"}
+]}
+</script>
 </head>
 <body>
+<a class="tg-skip" href="#main-content">Skip to main content</a>
+<button class="tg-a11y-btn" id="tgA11yBtn" aria-label="Accessibility settings" aria-expanded="false" aria-controls="tgA11yPanel">♿</button>
+<div class="tg-a11y-panel" id="tgA11yPanel" role="dialog" aria-label="Accessibility settings">
+<h2>Accessibility settings</h2>
+<p class="tg-note">Your choices are saved in this browser and applied on every visit. Nothing is sent anywhere.</p>
+<fieldset><legend>Theme</legend><div class="tg-seg" id="tgThemeSeg">
+<button data-theme-val="light" aria-pressed="true">☀️ Light</button>
+<button data-theme-val="dark" aria-pressed="false">🌙 Dark</button>
+</div></fieldset>
+<fieldset><legend>Text size</legend><div class="tg-seg" id="tgSizeSeg">
+<button data-size-val="" aria-pressed="true">Normal</button>
+<button data-size-val="lg" aria-pressed="false">Large</button>
+<button data-size-val="xl" aria-pressed="false">Extra large</button>
+</div></fieldset>
+<fieldset><legend>Reading</legend><div class="tg-seg">
+<button class="tg-toggle" id="tgDyslexia" aria-pressed="false">Dyslexia-friendly type</button>
+<button class="tg-toggle" id="tgLinks" aria-pressed="false">Underline links</button>
+<button class="tg-toggle" id="tgMotion" aria-pressed="false">Reduce motion</button>
+</div></fieldset>
+<fieldset><legend>Color vision</legend>
+<label class="tg-note" for="tgColorblind">Adjusts the site palette for common types of color blindness.</label>
+<select id="tgColorblind">
+<option value="">No adjustment</option>
+<option value="protan">Protanopia (red-blind)</option>
+<option value="deutan">Deuteranopia (green-blind)</option>
+<option value="tritan">Tritanopia (blue-blind)</option>
+<option value="achroma">Grayscale (monochromacy)</option>
+</select></fieldset>
+<fieldset><legend>Contrast</legend><div class="tg-seg">
+<button class="tg-toggle" id="tgContrast" aria-pressed="false">High contrast</button>
+</div></fieldset>
+<button class="tg-reset" id="tgReset">Reset all accessibility settings</button>
+</div>
+<button class="tg-chat-btn" id="tgChatBtn" aria-label="Chat with Glow Guide" aria-expanded="false" aria-controls="tgChatPanel">💬</button>
+<div class="tg-chat-panel" id="tgChatPanel" role="dialog" aria-label="Glow Guide chat">
+<div class="tg-chat-head"><strong>💬 Glow Guide</strong><p>Ask about care, outfits, shoes, merch, the podcast, or anything on this site — and I can take you right there.</p></div>
+<div class="tg-chat-msgs" id="tgMsgs" aria-live="polite"></div>
+<div class="tg-chips" id="tgChips"></div>
+<form class="tg-chat-form" id="tgChatForm"><input id="tgChatInput" type="text" placeholder="Ask me anything…" aria-label="Message Glow Guide" autocomplete="off" /><button type="submit">Send</button></form>
+<p class="tg-chat-foot">Glow Guide runs entirely in your browser — nothing you type leaves this page.</p>
+</div>
   <nav class="jump-bar" aria-label="Primary navigation"><div class="wrap jump-inner"><a class="jump-home" href="#home" aria-label="Return to home"><img class="brand-mark" src="logo.png" alt="TransGlowUp logo" width="30" height="30" /><span>TransGlowUp</span></a><div class="jump-links"><a class="closet-btn" href="#closet">Closet Starter</a><a class="diy-btn" href="#transition-101">Transition 101</a><a href="#wide-shoes">Wide Shoes</a><a href="#merch">Merch</a><a href="#podcast">Podcast</a><a href="#directory">Find care</a><a href="#recovery">Substance recovery</a><a href="#tools">Clothing tools</a><a href="#news">News</a><a href="#legal">Legal help</a><a href="#crisis">Crisis</a></div><a class="header-donate" href="https://cash.app/$TRANSGLOWUP" target="_blank" rel="noopener" aria-label="Donate securely through Cash App">Donate</a></div></nav>
   <a class="floating-help" href="#crisis" aria-label="Jump to urgent crisis support">Get help now</a><div class="visitor-pill" id="visitor-pill" hidden aria-label="Visitor count"><div class="v-row"><span class="v-heart" aria-hidden="true">💗</span><span class="v-count" id="visitor-count">&hellip;</span><span class="v-heart" aria-hidden="true">💗</span></div><svg class="v-squiggle" viewBox="0 0 100 12" aria-hidden="true"><path d="M4 7 Q 14 1, 24 7 T 44 7 T 64 7 T 84 7 T 104 7"/></svg></div><aside class="ad-rail ad-rail-left" aria-label="Advertisement"><span class="ad-tag">Advertisement</span><div class="ad-slot"><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2099138392595725" data-ad-slot="8975244919"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></aside><aside class="ad-rail ad-rail-right" aria-label="Advertisement"><span class="ad-tag">Advertisement</span><div class="ad-slot"><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2099138392595725" data-ad-slot="8975244919"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></aside>
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero app-page active" id="home" data-route="home"><img class="hero-banner-img" src="hero-banner.png" alt="TransGlowUp — Find your care. Claim your glow."><div class="wrap"><div class="hero-grid"><div><h1>Find your care. Claim your glow.</h1><p class="lede">Your bright, welcoming hub for health, rights, recovery, style, and everyday progress—made for trans, nonbinary, genderqueer, questioning, and gender-expansive people.</p><div class="hero-actions"><a class="btn" href="#directory">Find affirming care</a><a class="btn secondary" href="#news">Read verified news</a><a class="btn secondary" href="transition-planner.pdf" download>Get the planner (PDF)</a></div></div><div class="hero-art" role="img" aria-label="Colorful TransGlowUp illustration celebrating care, rights, style, and support"><div class="glow-visual"><span class="orbit orbit-care">Care</span><span class="orbit orbit-rights">Rights</span><span class="orbit orbit-style">Style</span><span class="orbit orbit-support">Support</span><div class="glow-core"><span>shine</span><strong>your way</strong></div></div></div></div><div class="hub-intro"><p class="eyebrow">Everything has its own page</p><h2>Choose a resource.</h2><p>Each page keeps one job in focus. The urgent-help button stays with you everywhere.</p></div><div class="hub-grid" aria-label="Resource pages"><a class="hub-card hot-pink" href="#directory"><span class="hub-num">01</span><strong>Find Care</strong><span>Verified provider search by state, city, town, or ZIP.</span></a><a class="hub-card teal" href="#recovery"><span class="hub-num">02</span><strong>Substance Recovery</strong><span>Treatment paths, peer support, coaching, and coping tools.</span></a><a class="hub-card yellow" href="#legal"><span class="hub-num">03</span><strong>Legal Help</strong><span>Identity documents, discrimination, free aid, and intersectional support.</span></a><aside class="ad-slot in-feed" aria-label="Advertisement"><span class="ad-slot-label">Advertisement</span><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2099138392595725" data-ad-slot="8975244919"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></aside><a class="hub-card purple" href="#news"><span class="hub-num">04</span><strong>Legal & Health News</strong><span>A dated feed of verified court, policy, access, and research updates.</span></a><a class="hub-card coral" href="#makeup"><span class="hub-num">05</span><strong>Makeup & Style</strong><span>Practical, affirming tutorials to adapt to your own look.</span></a><a class="hub-card lime" href="#tools"><span class="hub-num">06</span><strong>Size Converters</strong><span>Pants, shoes, bras, and shirts with inclusive fit guidance.</span></a><aside class="ad-slot in-feed" aria-label="Advertisement"><span class="ad-slot-label">Advertisement</span><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-2099138392595725" data-ad-slot="8975244919"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></aside><a class="hub-card blue" href="#guide"><span class="hub-num">07</span><strong>Transition Roadmap</strong><span>A flexible visit-only guide—never a required checklist.</span></a><a class="hub-card urgent-card" href="#crisis"><span class="hub-num">08</span><strong>Crisis Help</strong><span>Immediate support, lifelines, harm reduction, and grounding.</span></a><div class="hub-card donate-card"><span class="hub-num">09</span><strong class="donate-title"><img class="brand-mark-sm" src="logo.png" alt="TransGlowUp logo" width="26" height="26" />Support the Hub</strong><span>Help keep these community resources free and growing.</span><span class="donate-btns"><a class="btn secondary" href="https://cash.app/$TRANSGLOWUP" target="_blank" rel="noopener">Tip on Cash App</a><a class="btn secondary" href="https://ko-fi.com/transglowup" target="_blank" rel="noopener">Monthly on Ko-fi</a></span></div><a class="hub-card purple" href="#community"><span class="hub-num">10</span><strong>Community Chat</strong><span>Make friends in the moderated TransGlowUp Discord.</span></a><a class="hub-card hot-pink" href="#wide-shoes"><span class="hub-num">11</span><strong>Wide Shoes</strong><span>Cute wide-width shoes in sizes 11–13 that actually fit.</span></a><a class="hub-card yellow" href="#merch"><span class="hub-num">12</span><strong>Merch</strong><span>Nine TransGlowUp designs on print-on-demand gear.</span></a><a class="hub-card purple" href="#podcast"><span class="hub-num">13</span><strong><img class="brand-mark-sm" src="glow-report-cover.jpg" alt="The Glow Report podcast cover art" width="26" height="26" />The Glow Report</strong><span>Our podcast — trans news + trans history with Ever. New episodes Mondays &amp; Thursdays.</span></a></div><div class="inclusion-banner"><strong>All of us means all of us.</strong><span>Resources are written to include trans women, trans men, nonbinary and genderqueer people, questioning people, youth and elders, BIPOC community members, disabled people, veterans, and people who are incarcerated or returning home.</span></div></div></section>
@@ -666,5 +798,87 @@ updateProgress();
 })();
 
 </script>
+<script>
+/* ===== TransGlowUp accessibility toolbar + Glow Guide chatbot (2026-10-26) ===== */
+(function(){
+var KEY="tg-a11y";
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return{}}}
+function save(p){try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}}
+var prefs=load();
+function apply(){
+var h=document.documentElement;
+h.toggleAttribute("data-theme",!!(prefs.theme==="dark"));
+if(prefs.theme==="dark"){h.setAttribute("data-theme","dark")}else{h.removeAttribute("data-theme")}
+if(prefs.textsize){h.setAttribute("data-textsize",prefs.textsize)}else{h.removeAttribute("data-textsize")}
+if(prefs.dyslexia){h.setAttribute("data-dyslexia","on")}else{h.removeAttribute("data-dyslexia")}
+if(prefs.contrast){h.setAttribute("data-contrast","high")}else{h.removeAttribute("data-contrast")}
+if(prefs.motion){h.setAttribute("data-motion","reduced")}else{h.removeAttribute("data-motion")}
+if(prefs.links){h.setAttribute("data-links","underline")}else{h.removeAttribute("data-links")}
+if(prefs.colorblind){h.setAttribute("data-colorblind",prefs.colorblind)}else{h.removeAttribute("data-colorblind")}
+var mc=document.querySelector('meta[name="theme-color"]');
+if(mc){mc.setAttribute("content",prefs.theme==="dark"?"#1b0f2a":"#ffd9ee")}
+syncControls();
+}
+function syncControls(){
+document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.themeVal===(prefs.theme||"light")?"true":"false")});
+document.querySelectorAll("#tgSizeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.sizeVal===(prefs.textsize||"")?"true":"false")});
+var map={tgDyslexia:"dyslexia",tgLinks:"links",tgMotion:"motion",tgContrast:"contrast"};
+Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el){el.setAttribute("aria-pressed",prefs[map[id]]?"true":"false")}});
+var sel=document.getElementById("tgColorblind");if(sel){sel.value=prefs.colorblind||""}
+}
+document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.theme=b.dataset.themeVal;save(prefs);apply()})});
+document.querySelectorAll("#tgSizeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.textsize=b.dataset.sizeVal;save(prefs);apply()})});
+[["tgDyslexia","dyslexia"],["tgLinks","links"],["tgMotion","motion"],["tgContrast","contrast"]].forEach(function(pair){
+var el=document.getElementById(pair[0]);if(el){el.addEventListener("click",function(){prefs[pair[1]]=!prefs[pair[1]];save(prefs);apply()})}});
+var sel=document.getElementById("tgColorblind");if(sel){sel.addEventListener("change",function(){prefs.colorblind=sel.value;save(prefs);apply()})}
+document.getElementById("tgReset").addEventListener("click",function(){prefs={};save(prefs);apply()});
+var aBtn=document.getElementById("tgA11yBtn"),aPanel=document.getElementById("tgA11yPanel");
+aBtn.addEventListener("click",function(){var open=aPanel.classList.toggle("open");aBtn.setAttribute("aria-expanded",open?"true":"false")});
+var cBtn=document.getElementById("tgChatBtn"),cPanel=document.getElementById("tgChatPanel");
+cBtn.addEventListener("click",function(){var open=cPanel.classList.toggle("open");cBtn.setAttribute("aria-expanded",open?"true":"false");if(open){document.getElementById("tgChatInput").focus();if(!cPanel.dataset.greeted){cPanel.dataset.greeted="1";botSay("Hi, I'm Glow Guide! 💗 Ask me about gender-affirming care, outfit kits, wide shoes, merch, the podcast, or anything else on TransGlowUp — I can take you straight there.")}}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){aPanel.classList.remove("open");cPanel.classList.remove("open");aBtn.setAttribute("aria-expanded","false");cBtn.setAttribute("aria-expanded","false")}});
+apply();
+
+/* ---------- Glow Guide knowledge base ---------- */
+var KB=[
+{keys:["crisis","suicide","kill myself","hurt myself","self-harm","end my life","emergency","988"],answer:"I'm really glad you're here. If you feel you might act on these thoughts right now, please call or text 988 — the US Suicide and Crisis Lifeline, free and confidential, 24/7. You can also open the Crisis section of this site for immediate support options.",go:"crisis",goLabel:"Open the Crisis section"},
+{keys:["care","doctor","clinic","therapist","hrt","hormone","surgeon","surgery","provider","endocrinologist","gender-affirming"],answer:"The Care Directory lists verified gender-affirming clinicians and surgical programs, searchable by ZIP code with mileage — closest first. There's also a free-care section for no-cost options.",go:"directory",goLabel:"Open the Care Directory"},
+{keys:["free","no cost","no-cost","costs nothing"],answer:"The Free Care section collects genuinely free-with-free-shipping products and no-cost resources — makeup and beauty first, plus a scam-warning section so you can spot fakes.",go:"free-care",goLabel:"Open Free Care"},
+{keys:["closet","outfit","starter kit","clothes","clothing","dress","wardrobe","transition 101 outfits"],answer:"Closet Starter has 7 full-outfit bundles, every kit under $65 — Everyday Femme, Soft Girl Era, Night Out, Pool Party, Everyday Masc, Streetwear Starter, and Date Night.",go:"closet",goLabel:"Open Closet Starter"},
+{keys:["shoe","boot","wide","heel","sneaker","feet","size 11","size 12","size 13"],answer:"The Wide Shoes collection has 11 women's wide-width shoes in sizes 11–13, with photos, estimated prices, and links — plus a heels subsection.",go:"wide-shoes",goLabel:"Open Wide Shoes"},
+{keys:["merch","shirt","t-shirt","buy","redbubble","design"],answer:"Nine meaning-driven merch designs are ready — Glitter Glowup, She/Her Darling, He/Him Stencil, Unbothered Bolt, Trans Rights Badge, Femme Bloom, Masc Force, Protect Trans Kids, and Varsity. The shop buttons go live the moment the Redbubble shop link lands.",go:"merch",goLabel:"Open Merch"},
+{keys:["podcast","glow report","episode","listen","spotify"],answer:"The Glow Report is TransGlowUp's ~20-minute podcast, new episodes Mondays and Thursdays, hosted by Ever — built from the week's trans news and history. It's on Spotify and right here on the site.",go:"podcast",goLabel:"Open the Podcast"},
+{keys:["community","chat","discord","friends","talk","group"],answer:"Community Chat lives on the TransGlowUp Discord server — the hub's own community space, with guidelines and a volunteer-mod note. The join link is on the Community page.",go:"community",goLabel:"Open Community Chat"},
+{keys:["transition","makeup","wig","hair","dressing","voice","passing","femme","masc","trans woman","trans man"],answer:"Transition 101 is a full guide hub: makeup, wigs and hair, dressing for your body shape, and transitioning basics — with separate Trans Women and Trans Men guides, each with a 10-item checklist.",go:"transition-101",goLabel:"Open Transition 101"},
+{keys:["legal","name change","gender marker","id","documents","court","rights","law"],answer:"The Legal Help page covers name and gender marker changes and your rights, state by state, plus a dated feed of trans legal news.",go:"legal",goLabel:"Open Legal Help"},
+{keys:["recovery","addiction","sober","substance","aa","rehab"],answer:"The Recovery section routes you to help in all 50 states through SAMHSA, with tap-to-call — no judgment, just a way through.",go:"recovery",goLabel:"Open Recovery"},
+{keys:["tool","size","converter","bra","shirt size","convert"],answer:"The Tools page has clothing, shoe, bra, and men's-to-women's shirt size converters, plus the makeup tutorial library.",go:"tools",goLabel:"Open Tools"},
+{keys:["news","headline","today","latest"],answer:"The News feed carries dated, sourced trans legal and health news — updated regularly, with links to the original reporting.",go:"news",goLabel:"Open News"},
+{keys:["donate","support","kofi","ko-fi","cash app","tip","give money"],answer:"You can support the hub through Ko-fi (ko-fi.com/transglowup) or Cash App ($TRANSGLOWUP) — both are on the Support the Hub card on the home page. Every bit keeps the site free.",go:"home",goLabel:"Back to Home"},
+{keys:["contact","email","message","reach"],answer:"You can reach TransGlowUp through the Contact page — or email dev@transglowup.com.",go:"contact",goLabel:"Open Contact"},
+{keys:["dark mode","light mode","theme","accessibility","dyslexia","color blind","colorblind","font","blind","disability","accessible"],answer:"Tap the ♿ button at the bottom-left of any page. You can switch Light/Dark mode, text size, dyslexia-friendly type, color-vision palettes, high contrast, reduced motion, and underlined links — all saved in your browser.",go:null,goLabel:null},
+{keys:["what is","about","transglowup","who made","who runs"],answer:"TransGlowUp is a free, grassroots hub built by a trans woman for the community — one place for affirming care, style, legal help, recovery, news, and community. No paywalls, no sign-ups to browse.",go:"home",goLabel:"Back to Home"},
+{keys:["privacy","data","cookies","track"],answer:"The Privacy page explains what the site collects (very little) and how the visitor counter works. No account is needed to use the hub.",go:"privacy",goLabel:"Open Privacy"}
+];
+var msgs=document.getElementById("tgMsgs"),input=document.getElementById("tgChatInput"),form=document.getElementById("tgChatForm"),chips=document.getElementById("tgChips");
+["Find care","Closet Starter","Wide shoes","Merch","Podcast","Donate"].forEach(function(c){var b=document.createElement("button");b.type="button";b.textContent=c;b.addEventListener("click",function(){handle(c)});chips.appendChild(b)});
+function el(tag,cls,text){var d=document.createElement(tag);if(cls){d.className=cls}if(text){d.textContent=text}return d}
+function botSay(text,go,goLabel){
+var m=el("div","tg-msg bot",text);
+if(go){var b=el("button","tg-go",goLabel||"Take me there");b.addEventListener("click",function(){location.hash="#"+go});m.appendChild(document.createElement("br"));m.appendChild(b)}
+msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;
+}
+function userSay(text){msgs.appendChild(el("div","tg-msg user",text));msgs.scrollTop=msgs.scrollHeight}
+function handle(q){
+userSay(q);
+var text=q.toLowerCase(),best=null,bestScore=0;
+KB.forEach(function(item){var sc=0;item.keys.forEach(function(k){if(text.indexOf(k)>-1){sc+=k.length}});if(sc>bestScore){bestScore=sc;best=item}});
+if(best){botSay(best.answer,best.go,best.goLabel)}
+else{botSay("I don't have an answer for that one yet — but I can help with care, outfits, wide shoes, merch, the podcast, Transition 101, legal help, recovery, or donations. Try one of the buttons below, or ask another way.")}
+}
+form.addEventListener("submit",function(e){e.preventDefault();var q=input.value.trim();if(!q){return}input.value="";handle(q)});
+})();
+</script>
+
 </body>
 </html>
