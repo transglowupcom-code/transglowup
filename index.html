@@ -205,6 +205,36 @@ html[data-contrast="high"]{--ink:#000;--muted:#000;--line:#000;--surface:#fff;--
 html[data-theme="dark"][data-contrast="high"]{--ink:#fff;--muted:#fff;--line:#fff;--surface:#000;--surface-2:#000}
 html[data-dyslexia="on"] *{font-family:"Atkinson Hyperlegible","DM Sans",Verdana,sans-serif !important;letter-spacing:.035em;word-spacing:.12em}
 
+
+/* ===== Clinical restyle (2026-10-26): medical, restrained ===== */
+:root{--bg:#f7f9fb;--surface:#ffffff;--surface-2:#eef2f6;--surface-blue:#e8eff7;--ink:#1e293b;--muted:#5b6b7d;--line:#dbe3ea;--pink:#0f766e;--pink-strong:#0b4f47;--pink-soft:#e6f4f1;--blue:#1d5cb8;--blue-strong:#164a94;--blue-soft:#dbeafe;--lavender:#475569;--lavender-soft:#e2e8f0;--yellow:#f1f5f9;--lime:#0f766e;--danger:#dc2626;--danger-bg:#fef2f2;--black-accent:#1e293b;--dot:rgba(15,42,61,.05);--shadow:0 8px 24px rgba(15,42,61,.08);--shadow-edge:rgba(15,42,61,.08);--radius:16px}
+body{background-color:#f7f9fb;background-image:radial-gradient(700px 300px at 50% -120px,rgba(15,118,110,.06),transparent 70%)}
+.jump-bar{background-color:rgba(15,23,42,.96)}
+.section{padding:84px 0}
+.eyebrow{color:var(--pink-strong);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.section-icon{background:var(--pink-soft);color:var(--pink-strong);transform:none}
+.glow-core{transform:none;border-radius:50%}
+.card{box-shadow:0 8px 24px rgba(15,42,61,.08)}
+/* --- clinical dark theme --- */
+html[data-theme="dark"]{--bg:#0f172a;--surface:rgba(255,255,255,.05);--surface-2:#1e293b;--surface-blue:#16283a;--ink:#f1f5f9;--muted:#94a3b8;--line:rgba(255,255,255,.12);--pink:#5eead4;--pink-strong:#99f6e4;--pink-soft:#134e4a;--blue-soft:#7cc4ff;--yellow:#1e293b;--danger-bg:#33161f;--black-accent:#f1f5f9;--dot:rgba(255,255,255,.05);--shadow:0 16px 40px rgba(0,0,0,.5);--shadow-edge:rgba(0,0,0,.5)}
+html[data-theme="dark"] body{background-color:#0f172a;background-image:radial-gradient(700px 300px at 50% -120px,rgba(45,212,191,.08),transparent 70%)}
+html[data-theme="dark"] .jump-bar{background-color:rgba(2,6,23,.96)}
+html[data-theme="dark"] .jump-home,html[data-theme="dark"] .site-name,html[data-theme="dark"] .page-return{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.16)}
+html[data-theme="dark"] .visitor-pill{background:#1e293b;color:#f1f5f9}
+html[data-theme="dark"] .t101-choice{background:#1e293b}
+html[data-theme="dark"] .hero .btn.secondary[href="#news"]{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.16)}
+html[data-theme="dark"] .jump-links a.closet-btn,html[data-theme="dark"] .kit-buy,html[data-theme="dark"] .t101-jump-btn,html[data-theme="dark"] .hero .btn:first-child,html[data-theme="dark"] .search-btn,html[data-theme="dark"] .tg-a11y-btn,html[data-theme="dark"] .tg-chat-btn{background:#2dd4bf;border-color:#2dd4bf;color:#0f172a}
+html[data-theme="dark"] .tg-chat-head{background:#0f766e;color:#fff}
+html[data-theme="dark"] .tg-msg.user{background:#2dd4bf;color:#0f172a}
+html[data-theme="dark"] .tg-go{background:#1e293b;color:#5eead4;border-color:#5eead4}
+/* --- accessibility palettes re-asserted AFTER the clinical rules (tie-break) --- */
+html[data-colorblind="protan"],html[data-colorblind="deutan"]{--pink:#e69f00;--pink-strong:#b37400;--pink-soft:#f0c75e;--blue:#0072b2;--blue-strong:#005b8f;--blue-soft:#56b4e9;--lavender:#cc79a7;--lavender-soft:#e8a8c8;--yellow:#f0e442;--lime:#009e73;--line:#e69f00}
+html[data-colorblind="tritan"]{--pink:#d55e00;--pink-strong:#a63e00;--pink-soft:#f0a35e;--blue:#0072b2;--blue-strong:#005b8f;--blue-soft:#56b4e9;--lavender:#cc79a7;--lavender-soft:#e8a8c8;--yellow:#f0e442;--lime:#009e73;--line:#d55e00}
+html[data-colorblind="achroma"]{--pink:#767676;--pink-strong:#333;--pink-soft:#bdbdbd;--blue:#555;--blue-strong:#222;--blue-soft:#999;--lavender:#888;--lavender-soft:#ccc;--yellow:#ddd;--lime:#777;--line:#555;--danger:#333;--danger-bg:#eee}
+html[data-contrast="high"]{--ink:#000;--muted:#000;--line:#000;--surface:#fff;--surface-2:#fff}
+html[data-theme="dark"][data-contrast="high"]{--ink:#fff;--muted:#fff;--line:#fff;--surface:#000;--surface-2:#000}
+html[data-dyslexia="on"] *{font-family:"Atkinson Hyperlegible","DM Sans",Verdana,sans-serif !important;letter-spacing:.035em;word-spacing:.12em}
+
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
