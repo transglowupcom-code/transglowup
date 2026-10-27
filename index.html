@@ -426,6 +426,8 @@ html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .conta
 html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .jump-links a[aria-current="page"],
 html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .tg-skip{background:#87CEEB;color:#000}
 html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .verified-pill{background:#87CEEB;color:#000!important}
+/* T101 priority fix (2026-10-27): tip text was still gray in light mode */
+html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .t101-tip>span{color:#000}
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
