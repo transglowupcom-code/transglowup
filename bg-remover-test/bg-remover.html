@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ever's Background Eraser — transparent PNG + SVG</title>
+<style>
+  :root{color-scheme:dark}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#1e1033;color:#fff;min-height:100vh}
+  .wrap{max-width:960px;margin:0 auto;padding:28px 18px 60px}
+  h1{margin:0 0 4px;font-size:2rem}
+  h1 span{color:#ff8ac2}
+  .sub{margin:0 0 20px;color:#d9c2e8}
+  .steps{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px;padding:0;list-style:none}
+  .steps li{background:#121e3a;border:1px solid #3a4a6b;border-radius:999px;padding:8px 14px;font-size:.92rem}
+  .steps li b{color:#ff8ac2}
+  #dropzone{border:2px dashed #ff8ac2;border-radius:24px;padding:38px 20px;text-align:center;background:#121e3a;cursor:pointer;transition:.15s}
+  #dropzone.drag{border-color:#fff;background:#1a2a4a}
+  #dropzone p{margin:0 0 12px;font-size:1.05rem}
+  button,.btn{appearance:none;border:none;border-radius:999px;padding:13px 24px;font-size:1rem;font-weight:800;cursor:pointer}
+  .primary{background:linear-gradient(135deg,#ff2f9f,#ff5fb8);color:#fff}
+  .primary:disabled{opacity:.45;cursor:not-allowed}
+  .darkbtn{background:#1a2a4a;color:#fff;border:1px solid #3a4a6b}
+  .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:22px 0}
+  .controls label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#d9c2e8}
+  .controls select{background:#1a2a4a;color:#fff;border:1px solid #3a4a6b;border-radius:12px;padding:11px 12px;font-size:1rem}
+  .previews{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  @media(max-width:640px){.previews{grid-template-columns:1fr}}
+  figure{margin:0;background:#121e3a;border:1px solid #3a4a6b;border-radius:20px;padding:14px}
+  figcaption{margin-top:10px;color:#d9c2e8;font-size:.9rem;text-align:center}
+  figure img{display:block;max-width:100%;max-height:420px;margin:0 auto;border-radius:12px}
+  .checker{background-image:linear-gradient(45deg,#2a2a3a 25%,transparent 25%),linear-gradient(-45deg,#2a2a3a 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#2a2a3a 75%),linear-gradient(-45deg,transparent 75%,#2a2a3a 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0;background-color:#1c1c28}
+  .bgdark{background:#111}
+  .bglight{background:#fff}
+  #cutoutWrap{border-radius:12px}
+  #progressWrap{margin:16px 0}
+  #progressTrack{height:12px;background:#121e3a;border:1px solid #3a4a6b;border-radius:999px;overflow:hidden}
+  #progressBar{height:100%;width:0%;background:linear-gradient(90deg,#ff2f9f,#5eb9ff);transition:width .2s}
+  #status{margin-top:8px;color:#d9c2e8;min-height:1.4em}
+  #results{margin-top:22px;background:#121e3a;border:1px solid #3a4a6b;border-radius:20px;padding:20px}
+  #results h2{margin:0 0 8px}
+  #results .dlrow{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+  #svgPreview{background:#1c1c28;border-radius:12px;padding:10px;overflow:auto}
+  #svgPreview svg{max-width:100%;height:auto;display:block;margin:0 auto}
+  .note{color:#d9c2e8;font-size:.9rem}
+  footer{margin-top:30px;color:#9d8bb0;font-size:.85rem;line-height:1.5}
+  footer a{color:#ff8ac2}
+</style>
+<script type="importmap">
+{ "imports": { "@imgly/background-removal": "https://cdn.jsdelivr.net/npm/@imgly/background-removal/+esm" } }
+</script>
+</head>
+<body>
+<div class="wrap">
+  <h1>🫧 Ever's <span>Background Eraser</span></h1>
+  <p class="sub">Drop in a photo, erase the background, download a transparent PNG or a real vector SVG. Free, no account, and your images never leave this device.</p>
+  <ol class="steps">
+    <li><b>1.</b> Drop an image</li>
+    <li><b>2.</b> Tap Remove background</li>
+    <li><b>3.</b> Download PNG or SVG</li>
+  </ol>
+
+  <div id="dropzone" role="button" tabindex="0" aria-label="Choose an image">
+    <p>📷 Drop an image here, or choose one from your device</p>
+    <button type="button" class="darkbtn" id="pickBtn">Choose image</button>
+    <input type="file" id="fileInput" accept="image/*" hidden>
+    <p class="note" id="fileName"></p>
+  </div>
+
+  <div class="controls">
+    <label>AI model
+      <select id="model">
+        <option value="medium" selected>Quality (best edges)</option>
+        <option value="small">Faster (smaller download)</option>
+      </select>
+    </label>
+    <label>Preview background
+      <select id="bgToggle">
+        <option value="checker" selected>Checkerboard</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </label>
+    <label>Vector detail
+      <select id="colorCount">
+        <option value="8">Simple (8 colors)</option>
+        <option value="16" selected>Standard (16 colors)</option>
+        <option value="32">Detailed (32 colors)</option>
+      </select>
+    </label>
+    <button type="button" class="primary" id="removeBtn" disabled>✨ Remove background</button>
+  </div>
+
+  <div id="progressWrap">
+    <div id="progressTrack"><div id="progressBar"></div></div>
+    <div id="status" aria-live="polite">Pick an image to start.</div>
+  </div>
+
+  <div class="previews">
+    <figure>
+      <img id="origPreview" alt="">
+      <figcaption>Original</figcaption>
+    </figure>
+    <figure>
+      <div id="cutoutWrap" class="checker"><img id="cutoutPreview" alt=""></div>
+      <figcaption>Cutout — transparent background</figcaption>
+    </figure>
+  </div>
+
+  <div id="results" hidden>
+    <h2>Your cutout is ready 🎉</h2>
+    <p id="transparencyNote" class="note"></p>
+    <div class="dlrow">
+      <button type="button" class="primary" id="dlPng">⬇ Download transparent PNG</button>
+      <button type="button" class="primary" id="dlSvg">⬇ Download SVG vector</button>
+    </div>
+    <p id="svgNote" class="note"></p>
+    <div id="svgPreview"></div>
+  </div>
+
+  <footer>
+    First run downloads the free AI model once (about 80MB for Quality, 40MB for Faster) and caches it in your browser, so later runs are much quicker. Everything after that runs on your device — no uploads, no account, no cost, ever.<br>
+    Background removal by <a href="https://github.com/imgly/background-removal-js" target="_blank" rel="noopener">@imgly/background-removal</a> (free, open source). Vector tracing by ImageTracer (free, open source). Best for photos, products, logos and people — very wispy hair or glass can come out a little rough, and busy photos trace into chunkier SVGs than clean logos do.
+  </footer>
+</div>
+
+<script type="module">
+import { removeBackground } from '@imgly/background-removal';
+
+const $ = id => document.getElementById(id);
+const dropzone = $('dropzone'), fileInput = $('fileInput'), pickBtn = $('pickBtn');
+const origPreview = $('origPreview'), cutoutPreview = $('cutoutPreview'), cutoutWrap = $('cutoutWrap');
+const removeBtn = $('removeBtn'), statusEl = $('status'), progressBar = $('progressBar');
+const resultsEl = $('results'), transparencyNote = $('transparencyNote');
+const dlPng = $('dlPng'), dlSvg = $('dlSvg'), svgNote = $('svgNote'), svgPreview = $('svgPreview');
+
+let origFile = null, origBase = 'image', cutoutBlob = null, cutoutURL = null, cutoutImageData = null;
+
+function setStatus(msg){ statusEl.textContent = msg; }
+function setProgress(pct){ progressBar.style.width = Math.max(0, Math.min(100, pct)) + '%'; }
+
+function loadTracer(){
+  if (window.ImageTracer) return Promise.resolve(true);
+  if (loadTracer._p) return loadTracer._p;
+  loadTracer._p = new Promise(resolve => {
+    const sources = [
+      'https://cdn.jsdelivr.net/npm/imagetracerjs@1.2.6/imagetracer_v1.2.6.js',
+      'https://unpkg.com/imagetracerjs@1.2.6/imagetracer_v1.2.6.js'
+    ];
+    const tryNext = i => {
+      if (i >= sources.length) return resolve(false);
+      const el = document.createElement('script');
+      el.src = sources[i];
+      el.onload = () => resolve(!!window.ImageTracer);
+      el.onerror = () => tryNext(i + 1);
+      document.head.appendChild(el);
+    };
+    tryNext(0);
+  });
+  return loadTracer._p;
+}
+loadTracer(); // warm up in the background while the user picks an image
+
+function handleFile(file){
+  if (!file) return;
+  if (file.type === 'image/svg+xml' || /\.svg$/i.test(file.name)){
+    setStatus('That is already an SVG — please pick a photo, PNG or JPG to cut out.');
+    return;
+  }
+  origFile = file;
+  origBase = file.name.replace(/\.[^.]+$/, '') || 'image';
+  const url = URL.createObjectURL(file);
+  origPreview.src = url;
+  cutoutPreview.removeAttribute('src');
+  cutoutBlob = null; cutoutImageData = null;
+  resultsEl.hidden = true; svgPreview.innerHTML = ''; svgNote.textContent = '';
+  $('fileName').textContent = 'Selected: ' + file.name;
+  removeBtn.disabled = false;
+  setProgress(0);
+  setStatus('Image loaded. Tap “Remove background” when you are ready.');
+  fileInput.value = '';
+}
+
+pickBtn.addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
+dropzone.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('drag'); }));
+['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('drag'); }));
+dropzone.addEventListener('drop', e => handleFile(e.dataTransfer.files[0]));
+
+$('bgToggle').addEventListener('change', e => {
+  cutoutWrap.className = e.target.value === 'checker' ? 'checker' : e.target.value === 'dark' ? 'bgdark' : 'bglight';
+});
+
+function downloadBlob(blob, filename){
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+
+removeBtn.addEventListener('click', async () => {
+  if (!origFile) return;
+  removeBtn.disabled = true;
+  resultsEl.hidden = true;
+  setProgress(2);
+  setStatus('Starting… (first run downloads the free AI model, then it is cached)');
+  try {
+    const model = $('model').value;
+    const blob = await removeBackground(origFile, {
+      model,
+      output: { format: 'image/png' },
+      progress: (key, current, total) => {
+        if (total > 0){
+          setProgress(Math.round(current / total * 100));
+          const k = String(key || '');
+          if (/fetch/i.test(k)) setStatus('Downloading the free AI model… ' + Math.round(current / total * 100) + '%');
+          else if (/compute|inference|process/i.test(k)) setStatus('Removing the background… ' + Math.round(current / total * 100) + '%');
+          else setStatus('Working… ' + Math.round(current / total * 100) + '%');
+        }
+      }
+    });
+    cutoutBlob = blob;
+    cutoutURL = URL.createObjectURL(blob);
+    cutoutPreview.src = cutoutURL;
+    await new Promise((res, rej) => { cutoutPreview.onload = res; cutoutPreview.onerror = rej; });
+    // Measure transparency + keep pixels for tracing
+    const c = document.createElement('canvas');
+    c.width = cutoutPreview.naturalWidth; c.height = cutoutPreview.naturalHeight;
+    const ctx = c.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(cutoutPreview, 0, 0);
+    cutoutImageData = ctx.getImageData(0, 0, c.width, c.height);
+    const d = cutoutImageData.data;
+    let transparent = 0;
+    for (let i = 3; i < d.length; i += 4) if (d[i] < 128) transparent++;
+    const pct = Math.round(transparent / (d.length / 4) * 100);
+    setProgress(100);
+    setStatus('Background removed!');
+    transparencyNote.textContent = 'Transparent pixels: ' + pct + '% of the image. ' +
+      (pct === 0 ? 'Hmm — nothing looks transparent, try the other model or a different photo.' :
+       pct > 90 ? 'That is mostly empty space — the subject may be small in the frame.' :
+       'Looking good — download it below.');
+    resultsEl.hidden = false;
+  } catch (err) {
+    console.error(err);
+    setStatus('Could not remove the background: ' + (err && err.message ? err.message : err) + ' — check your connection and try again.');
+    setProgress(0);
+  } finally {
+    removeBtn.disabled = false;
+  }
+});
+
+dlPng.addEventListener('click', () => {
+  if (!cutoutBlob) return;
+  downloadBlob(cutoutBlob, origBase + '-no-bg.png');
+  setStatus('Transparent PNG downloaded.');
+});
+
+function pathsFromSvgString(svgStr){
+  const doc = new DOMParser().parseFromString(svgStr, 'image/svg+xml');
+  return [...doc.querySelectorAll('path')].map(p => p.outerHTML).join('');
+}
+
+function embeddedPngSvg(dataURL, w, h){
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+    '<image href="' + dataURL + '" width="' + w + '" height="' + h + '" /></svg>';
+}
+
+function blobToDataURL(blob){
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result); r.onerror = rej;
+    r.readAsDataURL(blob);
+  });
+}
+
+dlSvg.addEventListener('click', async () => {
+  if (!cutoutImageData) return;
+  const w = cutoutImageData.width, h = cutoutImageData.height;
+  const ncolors = parseInt($('colorCount').value, 10) || 16;
+  setStatus('Tracing your cutout into vector paths…');
+  svgNote.textContent = '';
+  let svgStr = null, traced = false;
+  try {
+    const ok = await loadTracer();
+    if (ok && window.ImageTracer){
+      // 1) Silhouette from the alpha channel (opaque = black, transparent = white)
+      const mask = new ImageData(w, h);
+      const src = cutoutImageData.data, md = mask.data;
+      for (let i = 0; i < src.length; i += 4){
+        const op = src[i + 3] >= 128;
+        md[i] = op ? 0 : 255; md[i + 1] = op ? 0 : 255; md[i + 2] = op ? 0 : 255; md[i + 3] = 255;
+      }
+      const maskData = window.ImageTracer.imagedataToTracedata(mask, { numberofcolors: 2, ltres: 1, qtres: 1, pathomit: 8, scale: 1 });
+      let blackIdx = -1;
+      (maskData.palette || []).forEach((c, i) => { if (c[0] === 0 && c[1] === 0 && c[2] === 0) blackIdx = i; });
+      // 2) Full-color trace of the cutout
+      const colorSvg = window.ImageTracer.imagedataToSVG(cutoutImageData, { numberofcolors: ncolors, ltres: 1, qtres: 1, pathomit: 8, scale: 1 });
+      const colorPaths = pathsFromSvgString(colorSvg);
+      if (blackIdx >= 0 && maskData.layers && maskData.layers[blackIdx]){
+        const clipSvg = window.ImageTracer.getsvgstring(
+          { width: w, height: h, palette: [[0, 0, 0, 255]], layers: [maskData.layers[blackIdx]] },
+          { scale: 1 }
+        );
+        const clipPaths = pathsFromSvgString(clipSvg);
+        if (clipPaths && colorPaths){
+          svgStr = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+            '<defs><clipPath id="cutoutClip">' + clipPaths + '</clipPath></defs>' +
+            '<g clip-path="url(#cutoutClip)">' + colorPaths + '</g></svg>';
+          traced = true;
+        }
+      }
+    }
+  } catch (err) {
+    console.error('Trace failed, falling back to embedded PNG SVG:', err);
+  }
+  if (!svgStr){
+    // Fallback: a real .svg that embeds the transparent PNG — still transparent and scalable in most apps.
+    const dataURL = await blobToDataURL(cutoutBlob);
+    svgStr = embeddedPngSvg(dataURL, w, h);
+    svgNote.textContent = 'Note: the vector tracer could not load, so this SVG embeds your transparent PNG instead of traced paths. It is still transparent — try the button again if you want the traced version.';
+  } else {
+    svgNote.textContent = 'Traced vector with a transparent background — scales to any size without getting blurry. Photos trace chunkier than logos; for crisp logo work, use the Simple setting.';
+  }
+  svgPreview.innerHTML = svgStr;
+  downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), origBase + '-no-bg.svg');
+  setStatus(traced ? 'SVG vector downloaded.' : 'SVG downloaded (embedded PNG version).');
+});
+</script>
+</body>
+</html>
