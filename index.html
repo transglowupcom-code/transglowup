@@ -428,6 +428,16 @@ html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .tg-sk
 html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .verified-pill{background:#87CEEB;color:#000!important}
 /* T101 priority fix (2026-10-27): tip text was still gray in light mode */
 html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .t101-tip>span{color:#000}
+
+/* ===== Classic palette (2026-11-01): plain solid look; Colorful stays the default ===== */
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) body{background-color:#f7f9fb;background-image:none}
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) body::before,html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) body::after{display:none}
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]){--surface:#ffffff;--surface-2:#eef2f7;--surface-blue:#e2e8f0;--pink-soft:#eef2f7;--blue-soft:#e2e8f0;--line:rgba(15,23,42,.22)}
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) .app-page .wrap,html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) .contact-section .wrap{background:#ffffff;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 2px 10px rgba(15,23,42,.08)}
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) .jump-bar{background-color:#2b0f38;background-image:none}
+html[data-look="classic"]:not([data-colorblind]):not([data-contrast]) .jump-links a{background:#2b0f38}
+html[data-look="classic"][data-theme="dark"]:not([data-colorblind]):not([data-contrast]) body{background-color:#1e1033}
+html[data-look="classic"][data-theme="dark"]:not([data-colorblind]):not([data-contrast]) .app-page .wrap,html[data-look="classic"][data-theme="dark"]:not([data-colorblind]):not([data-contrast]) .contact-section .wrap{background:#121e3a}
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
@@ -466,6 +476,10 @@ html:not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .t101-
 <fieldset><legend>Theme</legend><div class="tg-seg" id="tgThemeSeg">
 <button data-theme-val="light" aria-pressed="false">☀️ Light</button>
 <button data-theme-val="dark" aria-pressed="true">🌙 Dark</button>
+</div></fieldset>
+<fieldset><legend>Color palette</legend><div class="tg-seg" id="tgLookSeg">
+<button data-look-val="colorful" aria-pressed="true">🎨 Colorful</button>
+<button data-look-val="classic" aria-pressed="false">🕊️ Classic</button>
 </div></fieldset>
 <fieldset><legend>Text size</legend><div class="tg-seg" id="tgSizeSeg">
 <button data-size-val="" aria-pressed="true">Normal</button>
@@ -1071,7 +1085,7 @@ var prefs=load();
 function apply(){
 var h=document.documentElement;
 h.toggleAttribute("data-theme",!!(prefs.theme==="dark"));
-if(prefs.theme==="light"){h.removeAttribute("data-theme")}else{h.setAttribute("data-theme","dark")}
+if(prefs.theme==="light"){h.removeAttribute("data-theme")}else{h.setAttribute("data-theme","dark")} if(prefs.look==="classic"){h.setAttribute("data-look","classic")}else{h.removeAttribute("data-look")}
 if(prefs.textsize){h.setAttribute("data-textsize",prefs.textsize)}else{h.removeAttribute("data-textsize")}
 if(prefs.dyslexia){h.setAttribute("data-dyslexia","on")}else{h.removeAttribute("data-dyslexia")}
 if(prefs.contrast){h.setAttribute("data-contrast","high")}else{h.removeAttribute("data-contrast")}
@@ -1083,13 +1097,13 @@ if(mc){mc.setAttribute("content",prefs.theme==="light"?"#f7f9fb":"#0f172a")}
 syncControls();
 }
 function syncControls(){
-document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.themeVal===(prefs.theme||"dark")?"true":"false")});
+document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.themeVal===(prefs.theme||"dark")?"true":"false")}); document.querySelectorAll("#tgLookSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lookVal===(prefs.look||"colorful")?"true":"false")});
 document.querySelectorAll("#tgSizeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.sizeVal===(prefs.textsize||"")?"true":"false")});
 var map={tgDyslexia:"dyslexia",tgLinks:"links",tgMotion:"motion",tgContrast:"contrast"};
 Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el){el.setAttribute("aria-pressed",prefs[map[id]]?"true":"false")}});
 var sel=document.getElementById("tgColorblind");if(sel){sel.value=prefs.colorblind||""}
 }
-document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.theme=b.dataset.themeVal;save(prefs);apply()})});
+document.querySelectorAll("#tgThemeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.theme=b.dataset.themeVal;save(prefs);apply()})}); document.querySelectorAll("#tgLookSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.look=b.dataset.lookVal;save(prefs);apply()})});
 document.querySelectorAll("#tgSizeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.textsize=b.dataset.sizeVal;save(prefs);apply()})});
 [["tgDyslexia","dyslexia"],["tgLinks","links"],["tgMotion","motion"],["tgContrast","contrast"]].forEach(function(pair){
 var el=document.getElementById(pair[0]);if(el){el.addEventListener("click",function(){prefs[pair[1]]=!prefs[pair[1]];save(prefs);apply()})}});
@@ -1119,7 +1133,7 @@ var KB=[
 {keys:["news","headline","today","latest"],answer:"The News feed carries dated, sourced trans legal and health news — updated regularly, with links to the original reporting.",go:"news",goLabel:"Open News"},
 {keys:["donate","support","kofi","ko-fi","cash app","tip","give money"],answer:"You can support the hub through Ko-fi (ko-fi.com/transglowup) or Cash App ($TRANSGLOWUP) — both are on the Support the Hub card on the home page. Every bit keeps the site free.",go:"home",goLabel:"Back to Home"},
 {keys:["contact","email","message","reach"],answer:"You can reach TransGlowUp through the Contact page — or email dev@transglowup.com.",go:"contact",goLabel:"Open Contact"},
-{keys:["dark mode","light mode","theme","accessibility","dyslexia","color blind","colorblind","font","blind","disability","accessible"],answer:"Tap the ♿ button at the bottom-left of any page. You can switch Light/Dark mode, text size, dyslexia-friendly type, color-vision palettes, high contrast, reduced motion, and underlined links — all saved in your browser.",go:null,goLabel:null},
+{keys:["dark mode","light mode","theme","accessibility","dyslexia","color blind","colorblind","font","blind","disability","accessible"],answer:"Tap the ♿ button at the bottom-left of any page. You can switch Light/Dark mode, color palette (Colorful or Classic), text size, dyslexia-friendly type, color-vision palettes, high contrast, reduced motion, and underlined links — all saved in your browser.",go:null,goLabel:null},
 {keys:["what is","about","transglowup","who made","who runs"],answer:"TransGlowUp is a free, grassroots hub built by a trans woman for the community — one place for affirming care, style, legal help, recovery, news, and community. No paywalls, no sign-ups to browse.",go:"home",goLabel:"Back to Home"},
 {keys:["privacy","data","cookies","track"],answer:"The Privacy page explains what the site collects (very little) and how the visitor counter works. No account is needed to use the hub.",go:"privacy",goLabel:"Open Privacy"}
 ];
