@@ -443,7 +443,7 @@ html[data-look="classic"][data-theme="dark"]:not([data-colorblind]):not([data-co
    Desktop: brand, nav links, Merch, Donate. Mobile top row: brand, Merch, Donate. */
 .jump-merch{position:static}
 @media(min-width:821px){.jump-merch{order:2}.header-donate:not(.jump-merch){order:3}}
-@media(max-width:820px){.jump-inner{flex-direction:row;flex-wrap:wrap;align-items:center}.jump-home{align-self:center}.jump-merch{order:2}.jump-links{order:3}.header-donate:not(.jump-merch){order:4}}
+@media(max-width:820px){.jump-inner{flex-direction:row;flex-wrap:wrap;align-items:center}.jump-home{align-self:center}.jump-merch{order:2}.jump-links{order:3;flex:0 0 100%;width:100%}.header-donate:not(.jump-merch){order:4}}
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
