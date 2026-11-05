@@ -486,6 +486,13 @@ html:not([data-look]):not([data-theme="dark"]):not([data-colorblind]):not([data-
 html:not([data-look]):not([data-theme="dark"]):not([data-colorblind]):not([data-contrast]) .section-icon{background:linear-gradient(145deg,#f2e7ff,#d8f5ff);border:1px solid rgba(138,91,146,.5);color:var(--black-accent);box-shadow:0 5px 13px rgba(106,66,121,.12)}
 /* Gear header tweaks (2026-11-05): a11y trigger moved to the header; panel clears the taller wrapped mobile header; gear + brand shrink on phones so brand, Merch, Donate, gear all fit the top row. */
 @media(max-width:820px){.tg-a11y-panel{top:140px}.tg-a11y-btn{width:32px;height:32px;font-size:16px}.jump-home{padding:8px 10px}}
+
+/* Bottom-center button pair (2026-11-05): Get help sits next to the chat button, centered at the bottom. */
+.floating-help{left:50%;right:auto;top:auto;bottom:16px;transform:translateX(calc(-100% - 6px))}
+.tg-chat-btn{left:50%;right:auto;transform:translateX(6px)}
+.tg-chat-panel{left:50%;right:auto;transform:translateX(-50%)}
+/* Phone header compaction (2026-11-05): brand, Merch, Donate and gear all fit the top row on a small phone. */
+@media(max-width:560px){.jump-inner{gap:6px}.jump-home{padding:6px 8px;gap:6px}.jump-home span{font-size:.85rem}.brand-mark{width:24px;height:24px}.header-donate{min-height:36px;padding:6px 10px;font-size:.75rem}.tg-a11y-btn{width:30px;height:30px;font-size:15px}}
 </style>
 <!-- TransGlowUp SEO head tags — merge into <head> of index.html in the next batched deploy.
      Cost: rides the already-planned batched deploy = ZERO extra Netlify credits. -->
