@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>The Glow Report</title>
+  <description>Trans news and trans history, served warm. Hosted by Ever, with Theo from Episode 4. From TransGlowUp.
+
+AI Generated</description>
+  <language>en</language>
+  <link>https://transglowup.com/theglowreport/</link>
+  <itunes:author>Ever</itunes:author>
+  <itunes:category text="Society &amp; Culture" />
+  <managingEditor>dev@transglowup.com (TransGlowUp)</managingEditor>
+  <itunes:owner>
+    <itunes:name>TransGlowUp</itunes:name>
+    <itunes:email>dev@transglowup.com</itunes:email>
+  </itunes:owner>
+  <itunes:explicit>false</itunes:explicit>
+  <atom:link href="https://transglowup.com/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+  <itunes:image href="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/cover.png"/>
+  <image>
+    <url>https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/cover.png</url>
+    <title>The Glow Report</title>
+    <link>https://muse.ai/podcasts/feed/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210</link>
+  </image>
+  <item>
+    <title>Trans Rights Are Winning in Court — Puberty Blocker Ban Overturned, Prison Care Protected, AOC Defends Trans Women | The Glow Report Ep. 1</title>
+    <description>Trans rights court wins in New Zealand, the US, India and Hungary, AOC&apos;s girl&apos;s girl moment, Hunter Schafer&apos;s Elle cover, plus trans history: Marsha P. Johnson, Sylvia Rivera, Jennie June, Christine Jorgensen, Compton&apos;s Cafeteria, Pauli Murray, Billy Tipton and Lucy Hicks Anderson. The Glow Report from TransGlowUp, hosted by Ever.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-ca25cde7-de5c-4f14-88cf-dfaf203f5780.mp3" length="9623077" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-ca25cde7-de5c-4f14-88cf-dfaf203f5780</guid>
+    <pubDate>Fri, 30 Oct 2026 16:02:56 +0000</pubDate>
+    <itunes:duration>1202</itunes:duration>
+  </item>
+  <item>
+    <title>Taipei Pride, Virginia Marriage Equality Vote, and Trans Rights in Court | The Glow Report Ep. 4</title>
+    <description>Ever welcomes cohost Theo for Episode 4: Taipei Pride draws 170,000, Virginia votes on marriage equality, a court closes the WPATH subpoena fight, Texas mystery texts are unmasked, a Georgia librarian fights back, Johannesburg celebrates Africa&apos;s oldest Pride, plus a Trans History Spotlight on Dr. Michael Dillon, Renée Richards, and Dr. Alan L. Hart. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-e1ec106e-7e9b-4f87-944a-107b89500199.mp3" length="10168933" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-e1ec106e-7e9b-4f87-944a-107b89500199</guid>
+    <pubDate>Mon, 02 Nov 2026 18:23:54 +0000</pubDate>
+    <itunes:duration>1271</itunes:duration>
+  </item>
+  <item>
+    <title>Virginia Passes Marriage Equality, Missouri Rejects Trans Care Ban, Sarah McBride Wins Again | The Glow Report Ep. 5</title>
+    <description>Virginia votes yes on marriage equality, Sarah McBride wins a second term in Congress, Missouri voters reject a ban on gender-affirming care for trans youth, plus a Trans History Spotlight on Roberta Cowell, April Ashley, and Lou Sullivan. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-51a79648-72b7-4347-bf29-d4c935ba5aff.mp3" length="9122533" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-51a79648-72b7-4347-bf29-d4c935ba5aff</guid>
+    <pubDate>Thu, 05 Nov 2026 18:30:57 +0000</pubDate>
+    <itunes:duration>1140</itunes:duration>
+  </item>
+</channel>
+</rss>
