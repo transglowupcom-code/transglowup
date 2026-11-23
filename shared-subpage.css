@@ -57,7 +57,7 @@ h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:0 0 10px;color:var
 .byline time{font-weight:700;color:var(--ink)}
 .card{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:var(--shadow);padding:26px 26px 8px;margin:0 0 22px;
+  box-shadow:var(--shadow);padding:26px 26px 16px;margin:0 0 22px;
 }
 .card h2{color:var(--pink-strong);margin:4px 0 10px;font-size:1.35rem;line-height:1.3}
 .card h3{margin:22px 0 8px;font-size:1.1rem}
@@ -67,12 +67,12 @@ h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:0 0 10px;color:var
 .card li::marker{color:var(--pink-strong)}
 .tip{
   background:var(--blue-soft);border-left:4px solid var(--blue-strong);
-  border-radius:12px;padding:14px 16px;margin:0 0 16px;
+  border-radius:12px;padding:16px;margin:0 0 16px;
 }
 .tip strong{color:var(--blue-strong)}
 .note{
   background:var(--surface-soft);border-left:4px solid var(--pink);
-  border-radius:12px;padding:14px 16px;margin:0 0 16px;
+  border-radius:12px;padding:16px;margin:0 0 16px;
 }
 .sources{font-size:.92rem}
 .sources h2{font-size:1.1rem}
@@ -99,7 +99,7 @@ footer{margin-top:44px;border-top:1px solid var(--line);padding-top:22px}
 .footer-links{margin-top:8px}
 .footer-links a{margin-right:14px}
 @media (max-width:640px){
-  .card{padding:20px 18px 6px}
+  .card{padding:20px 18px 16px}
   .jump-links{order:3;flex-basis:100%;justify-content:flex-start}
 }
 /* Dark-mode respect for saved visitor preference (a11y script sets data-theme). */
