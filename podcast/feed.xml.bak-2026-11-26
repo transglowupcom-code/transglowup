@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>The Glow Report</title>
+  <description>Trans news and trans history, served warm. Hosted by Ever, with Theo from Episode 4. From TransGlowUp.
+
+AI Generated</description>
+  <language>en</language>
+  <link>https://transglowup.com/theglowreport/</link>
+  <itunes:author>Ever</itunes:author>
+  <itunes:category text="Society &amp; Culture" />
+  <managingEditor>dev@transglowup.com (TransGlowUp)</managingEditor>
+  <itunes:owner>
+    <itunes:name>TransGlowUp</itunes:name>
+    <itunes:email>dev@transglowup.com</itunes:email>
+  </itunes:owner>
+  <itunes:explicit>false</itunes:explicit>
+  <atom:link href="https://transglowup.com/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+  <itunes:image href="https://transglowup.com/podcast/cover.jpg"/>
+  <image>
+    <url>https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/cover.png</url>
+    <title>The Glow Report</title>
+    <link>https://muse.ai/podcasts/feed/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210</link>
+  </image>
+  <item>
+    <title>Trans Rights Are Winning in Court — Puberty Blocker Ban Overturned, Prison Care Protected, AOC Defends Trans Women | The Glow Report Ep. 1</title>
+    <description>Trans rights court wins in New Zealand, the US, India and Hungary, AOC&apos;s girl&apos;s girl moment, Hunter Schafer&apos;s Elle cover, plus trans history: Marsha P. Johnson, Sylvia Rivera, Jennie June, Christine Jorgensen, Compton&apos;s Cafeteria, Pauli Murray, Billy Tipton and Lucy Hicks Anderson. The Glow Report from TransGlowUp, hosted by Ever.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-ca25cde7-de5c-4f14-88cf-dfaf203f5780.mp3" length="9623077" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-ca25cde7-de5c-4f14-88cf-dfaf203f5780</guid>
+    <pubDate>Fri, 30 Oct 2026 16:02:56 +0000</pubDate>
+    <itunes:duration>1202</itunes:duration>
+  </item>
+  <item>
+    <title>Taipei Pride, Virginia Marriage Equality Vote, and Trans Rights in Court | The Glow Report Ep. 4</title>
+    <description>Ever welcomes cohost Theo for Episode 4: Taipei Pride draws 170,000, Virginia votes on marriage equality, a court closes the WPATH subpoena fight, Texas mystery texts are unmasked, a Georgia librarian fights back, Johannesburg celebrates Africa&apos;s oldest Pride, plus a Trans History Spotlight on Dr. Michael Dillon, Renée Richards, and Dr. Alan L. Hart. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-e1ec106e-7e9b-4f87-944a-107b89500199.mp3" length="10168933" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-e1ec106e-7e9b-4f87-944a-107b89500199</guid>
+    <pubDate>Mon, 02 Nov 2026 18:23:54 +0000</pubDate>
+    <itunes:duration>1271</itunes:duration>
+  </item>
+  <item>
+    <title>Virginia Passes Marriage Equality, Missouri Rejects Trans Care Ban, Sarah McBride Wins Again | The Glow Report Ep. 5</title>
+    <description>Virginia votes yes on marriage equality, Sarah McBride wins a second term in Congress, Missouri voters reject a ban on gender-affirming care for trans youth, plus a Trans History Spotlight on Roberta Cowell, April Ashley, and Lou Sullivan. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-51a79648-72b7-4347-bf29-d4c935ba5aff.mp3" length="9122533" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-51a79648-72b7-4347-bf29-d4c935ba5aff</guid>
+    <pubDate>Thu, 05 Nov 2026 18:30:57 +0000</pubDate>
+    <itunes:duration>1140</itunes:duration>
+  </item>
+  <item>
+    <title>Rainbow Wave: Eleven Trans Candidates Win, New York Court Backs Trans Athletes, and Wendy Carlos Built the Future | The Glow Report Ep. 6</title>
+    <description>Eleven trans and nonbinary candidates win on Election Day, a New York court strikes down Nassau County&apos;s anti-trans sports ban, India&apos;s Bombay High Court says self-identification is enough, Seattle marches against Initiative 638, plus a Trans History Spotlight on Wendy Carlos, Gwendolyn Ann Smith, and Lynn Conway. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-3f1e96d8-52c0-4a31-b139-c2d2d94dcaa2.mp3" length="10177573" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-3f1e96d8-52c0-4a31-b139-c2d2d94dcaa2</guid>
+    <pubDate>Mon, 09 Nov 2026 18:31:30 +0000</pubDate>
+    <itunes:duration>1272</itunes:duration>
+  </item>
+  <item>
+    <title>The Supreme Court Sent Darlene Griffith&apos;s Case Back — and the Athlete Ruling Behind It | The Glow Report Ep. 7</title>
+    <description>The Supreme Court sends Darlene Griffith&apos;s jail case back in light of the athlete ruling decided June 30 — Ever and Theo unpack what the GVR means, set the record straight on Little v. Hecox and West Virginia v. B.P.J., and open Transgender Awareness Week ahead of Transgender Day of Remembrance. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-967aac90-d781-4248-9ee5-77cc8c6929d9.mp3" length="10307173" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-967aac90-d781-4248-9ee5-77cc8c6929d9</guid>
+    <pubDate>Thu, 12 Nov 2026 18:21:52 +0000</pubDate>
+    <itunes:duration>1288</itunes:duration>
+  </item>
+  <item>
+    <title>Australia Backs Puberty Blockers, Nearly 97% Say Hormones Were Right, and Texas Flips Blue | The Glow Report Ep. 8</title>
+    <description>Australia&apos;s top medical body says puberty blockers can stay on the table, the largest transition-regret study ever finds nearly 97 percent say hormones were the right call, Texas flips blue and trans Texans celebrate, Montana elects the first trans party leader in America, and Chicago raises the Trans Pride flag — plus a Trans History Spotlight on Rita Hester, Reed Erickson, and Dr. Harry Benjamin. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-fceb5c61-fd8b-4836-99b5-11c99e00e887.mp3" length="10567333" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-fceb5c61-fd8b-4836-99b5-11c99e00e887</guid>
+    <pubDate>Mon, 16 Nov 2026 18:26:00 +0000</pubDate>
+    <itunes:duration>1320</itunes:duration>
+  </item>
+  <item>
+    <title>Trans Troops Stay in Uniform, the $400 Million Anti-Trans Ad Flop, and Delhi&apos;s Health Win | The Glow Report Ep. 9</title>
+    <description>A federal appeals court tells the Pentagon the troops stay, voters punished the candidates who ran anti-trans attack ads, Colorado&apos;s Kelly Loving Act goes before a federal appeals court, Delhi approves free health coverage for trans residents — plus a Trans History Spotlight on Stormé DeLarverie, Virginia Prince, and We&apos;wha. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-494e85fe-a6e5-4d97-b356-1471b28cac98.mp3" length="10278757" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-494e85fe-a6e5-4d97-b356-1471b28cac98</guid>
+    <pubDate>Thu, 19 Nov 2026 18:28:00 +0000</pubDate>
+    <itunes:duration>1284</itunes:duration>
+  </item>
+  <item>
+    <title>Sarah McBride Makes History in Congress — and Texas Drops Its War on Trans Doctors | The Glow Report Ep. 10</title>
+    <description>Sarah McBride becomes the first trans person ever elected to congressional leadership, Transgender Day of Remembrance honors 28 lives lost in the U.S. and 273 worldwide, Texas drops its lawsuits against trans-care doctors, and Daniella Mendez runs for the New Jersey Assembly — plus a Trans History Spotlight on Monica Helms, the Navy veteran who sketched our flag, Lou Sullivan, and Danica Roem. Hosted by Ever and Theo for TransGlowUp.
+
+AI Generated</description>
+    <enclosure url="https://muse.ai/podcasts/media/1422324494286827/cb9cb37b-6e08-4d61-8c63-2abf3c517210/ep-f2543c01-4dd6-4ea3-87cb-57013cd9ec1c.mp3" length="8970469" type="audio/mpeg"/>
+    <guid isPermaLink="false">ep-f2543c01-4dd6-4ea3-87cb-57013cd9ec1c</guid>
+    <pubDate>Mon, 23 Nov 2026 18:25:00 +0000</pubDate>
+    <itunes:duration>1121</itunes:duration>
+  </item>
+
+</channel>
+</rss>
